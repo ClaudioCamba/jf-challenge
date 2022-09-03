@@ -1,0 +1,143 @@
+$black-color: #000;
+$white-color: #fff;
+$grey-color: #71787a;
+$red-color: #d02330;
+$light-grey-color: #f8f6f7;
+$grey-rgba-color: rgba(113, 120, 122, 0.8);
+$black-rgba-color: rgba(0, 0, 0, 0.8);
+
+/* Modal */
+.show-modal .modal {
+  display: flex;
+}
+
+.modal {
+  box-sizing: border-box;
+  display: none;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background-color: $black-rgba-color;
+  justify-content: center;
+  align-items: center;
+  z-index: 16777216;
+  text-align: center;
+  // Modal content
+  .modal-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 600px;
+    height: max-content;
+    height: -webkit-max-content;
+    height: -moz-max-content;
+    padding: 50px;
+    background-color: $light-grey-color;
+    position: relative;
+    background-image: url(https://i.postimg.cc/T1HXZL4J/background.jpg);
+    background-repeat: repeat;
+    background-size: 100px 100px;
+    // Close button
+    .close-modal,
+    .close-modal:hover,
+    .close-modal:focus {
+      color: $black-color;
+      font-size: 40px;
+      padding: 5px 10px;
+      background-color: transparent;
+      position: absolute;
+      right: 0;
+      top: 0;
+    }
+    // Form
+    form {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
+      width: 100%;
+      padding: 40px;
+      background-color: $grey-color;
+      background-color: $grey-rgba-color;
+
+      h3 {
+        font-family: "Gotham", "Arial Black", Arial, Arial, sans-serif;
+        font-size: 30px;
+        font-style: initial;
+        font-weight: normal;
+        color: $white-color;
+        margin: 0;
+      }
+      label {
+        max-width: 300px;
+        width: 100%;
+        input {
+          background: $white-color;
+          border: 1px solid $grey-color;
+          outline: none;
+          color: $black-color;
+          width: 100%;
+        }
+      }
+    }
+  }
+}
+
+.modal.successful-submit form {
+  h3 {
+    font-weight: 900;
+  }
+
+  label,
+  button {
+    display: none;
+  }
+}
+
+/* Error styling */
+input:focus:invalid {
+  outline: none;
+}
+
+/* This is the style of our error messages */
+.error:empty {
+  display: none;
+}
+
+.error,
+.error.active {
+  width: 100%;
+  padding: 0;
+  font-size: 12px;
+  color: $white-color;
+  background-color: $red-color;
+  border: 1px solid $grey-color;
+  border-radius: 0;
+  box-sizing: border-box;
+  display: block;
+  padding: 0.3em;
+}
+
+@media only screen and (max-width: 640px) {
+  .modal {
+    padding: 40px 20px 0;
+    .modal-content {
+      padding: 40px 30px 30px;
+      .close-modal,
+      .close-modal:hover,
+      .close-modal:focus {
+        font-size: 30px;
+      }
+      form {
+        padding: 30px 20px;
+        h3 {
+          font-size: 22px;
+        }
+      }
+    }
+  }
+}
